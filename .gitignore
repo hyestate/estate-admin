@@ -1,0 +1,17 @@
+package-lock.json
+.vscode
+logs/
+npm-debug.log
+node_modules/
+coverage/
+.idea/
+run/
+logs/
+.DS_Store
+.vscode
+*.swp
+*.lock
+
+app/**/*.map
+test/**/*.map
+config/**/*.map
