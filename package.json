@@ -1,7 +1,7 @@
 {
   "name": "helloworld",
   "scripts": {
-    "dev": "egg-bin dev --port 7001",
+    "dev": "egg-bin dev",
     "test": "egg-bin test",
     "cov": "egg-bin cov",
     "sequelize": "sequelize --"
