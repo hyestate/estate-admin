@@ -39,7 +39,7 @@ class HomeController extends Controller {
         await this.ctx.render('index.html');
     } else {
         let html = await get({
-            url: 'http://localhost:8001/',
+            url: 'http://localhost:9002/',
             method: 'get',
             responseType: 'text'
         });
