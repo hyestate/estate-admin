@@ -1,6 +1,6 @@
 const Controller = require('egg').Controller;
 
-class UserController extends Controller {
+class SysTablePrivController extends Controller {
   async index() {
     const ctx = this.ctx;
     const query = {
@@ -8,38 +8,37 @@ class UserController extends Controller {
       offset: ctx.helper.parseInt(ctx.query.offset),
     };
     console.log(this.ctx.service);
-    console.log(this.ctx.service.user);
-    console.log(this.ctx.service.user.list);
-    console.log(this.ctx.service.user.find);
-    ctx.body = await ctx.service.user.list(query);
+    console.log(this.ctx.service.sysTablePriv);
+    console.log(this.ctx.service.sysTablePriv.list);
+    console.log(this.ctx.service.sysTablePriv.find);
+    ctx.body = await ctx.service.sysTablePriv.list(query);
   }
 
   async show() {
     const ctx = this.ctx;
-    console.log("show:",ctx.params.id);
-    ctx.body = await ctx.service.user.find(ctx.helper.parseInt(ctx.params.id));
+    ctx.body = await ctx.service.sysTablePriv.find(ctx.helper.parseInt(ctx.params.id));
   }
 
   async create() {
     const ctx = this.ctx;
-    const user = await ctx.service.user.create(ctx.request.body);
+    const sysTablePriv = await ctx.service.sysTablePriv.create(ctx.request.body);
     ctx.status = 201;
-    ctx.body = user;
+    ctx.body = sysTablePriv;
   }
 
   async update() {
     const ctx = this.ctx;
     const id = ctx.helper.parseInt(ctx.params.id);
     const body = ctx.request.body;
-    ctx.body = await ctx.service.user.update({ id, updates: body });
+    ctx.body = await ctx.service.sysTablePriv.update({ id, updates: body });
   }
 
   async destroy() {
     const ctx = this.ctx;
     const id = ctx.helper.parseInt(ctx.params.id);
-    await ctx.service.user.del(id);
+    await ctx.service.sysTablePriv.del(id);
     ctx.status = 200;
   }
 }
 
-module.exports = UserController;
+module.exports = SysTablePrivController;
