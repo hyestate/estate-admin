@@ -16,6 +16,7 @@ class UserController extends Controller {
 
   async show() {
     const ctx = this.ctx;
+    console.log("show:",ctx.params.id);
     ctx.body = await ctx.service.user.find(ctx.helper.parseInt(ctx.params.id));
   }
 
