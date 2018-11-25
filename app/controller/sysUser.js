@@ -7,10 +7,7 @@ class SysUserController extends Controller {
       limit: ctx.helper.parseInt(ctx.query.limit),
       offset: ctx.helper.parseInt(ctx.query.offset),
     };
-    console.log(this.ctx.service);
-    console.log(this.ctx.service.sysUser);
-    console.log(this.ctx.service.sysUser.list);
-    console.log(this.ctx.service.sysUser.find);
+    let headers = [];
     ctx.body = await ctx.service.sysUser.list(query);
   }
 

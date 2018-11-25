@@ -1,12 +1,15 @@
 'use strict';
 
 module.exports = app => {
-  app.router.get('/', app.controller.home.render);
-  app.router.get('/foo', app.controller.foo.render);
+  const { router, controller } = app;
+  router.get('/', app.controller.home.render);
+  router.get('/foo', app.controller.foo.render);
+  router.get('/showTables', app.controller.table.show);
+  router.get('/descTable/:table', app.controller.table.desc);
 
-  app.resources('sysUsers', '/sysUsers', app.controller.sysUser);
-  app.resources('sysRoles', '/sysRoles', app.controller.sysRole);
-  app.resources('sysUserRoles', '/sysUserRoles', app.controller.sysUserRole);
-  app.resources('sysTablePrivs', '/sysTablePrivs', app.controller.sysTablePriv);
-  app.resources('sysColumnPrivs', '/sysColumnPrivs', app.controller.sysColumnPriv);
+  app.resources('sysUsers', '/sys_users', app.controller.sysUser);
+  app.resources('sysRoles', '/sys_roles', app.controller.sysRole);
+  app.resources('sysUserRoles', '/sys_user_roles', app.controller.sysUserRole);
+  app.resources('sysTablePrivs', '/sys_table_privs', app.controller.sysTablePriv);
+  app.resources('sysColumnPrivs', '/sys_column_privs', app.controller.sysColumnPriv);
 };

@@ -1,6 +1,6 @@
 const Controller = require('egg').Controller;
 
-class SysRoleController extends Controller {
+class SysUserRoleController extends Controller {
   async index() {
     const ctx = this.ctx;
     const query = {
@@ -8,37 +8,37 @@ class SysRoleController extends Controller {
       offset: ctx.helper.parseInt(ctx.query.offset),
     };
     console.log(this.ctx.service);
-    console.log(this.ctx.service.sysRole);
-    console.log(this.ctx.service.sysRole.list);
-    console.log(this.ctx.service.sysRole.find);
-    ctx.body = await ctx.service.sysRole.list(query);
+    console.log(this.ctx.service.sysUserRole);
+    console.log(this.ctx.service.sysUserRole.list);
+    console.log(this.ctx.service.sysUserRole.find);
+    ctx.body = await ctx.service.sysUserRole.list(query);
   }
 
   async show() {
     const ctx = this.ctx;
-    ctx.body = await ctx.service.sysRole.find(ctx.helper.parseInt(ctx.params.id));
+    ctx.body = await ctx.service.sysUserRole.find(ctx.helper.parseInt(ctx.params.id));
   }
 
   async create() {
     const ctx = this.ctx;
-    const sysRole = await ctx.service.sysRole.create(ctx.request.body);
+    const sysUserRole = await ctx.service.sysUserRole.create(ctx.request.body);
     ctx.status = 201;
-    ctx.body = sysRole;
+    ctx.body = sysUserRole;
   }
 
   async update() {
     const ctx = this.ctx;
     const id = ctx.helper.parseInt(ctx.params.id);
     const body = ctx.request.body;
-    ctx.body = await ctx.service.sysRole.update({ id, updates: body });
+    ctx.body = await ctx.service.sysUserRole.update({ id, updates: body });
   }
 
   async destroy() {
     const ctx = this.ctx;
     const id = ctx.helper.parseInt(ctx.params.id);
-    await ctx.service.sysRole.del(id);
+    await ctx.service.sysUserRole.del(id);
     ctx.status = 200;
   }
 }
 
-module.exports = SysRoleController;
+module.exports = SysUserRoleController;
