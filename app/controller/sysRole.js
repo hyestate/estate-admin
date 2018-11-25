@@ -7,10 +7,6 @@ class SysRoleController extends Controller {
       limit: ctx.helper.parseInt(ctx.query.limit),
       offset: ctx.helper.parseInt(ctx.query.offset),
     };
-    console.log(this.ctx.service);
-    console.log(this.ctx.service.sysRole);
-    console.log(this.ctx.service.sysRole.list);
-    console.log(this.ctx.service.sysRole.find);
     ctx.body = await ctx.service.sysRole.list(query);
   }
 
