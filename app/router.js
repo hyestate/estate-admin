@@ -7,6 +7,9 @@ module.exports = app => {
   router.get('/showTables', app.controller.table.show);
   router.get('/descTable/:table', app.controller.table.desc);
 
+
+  app.resources('users', '/users', app.controller.user);
+
   app.resources('sysUsers', '/sys_users', app.controller.sysUser);
   app.resources('sysRoles', '/sys_roles', app.controller.sysRole);
   app.resources('sysUserRoles', '/sys_user_roles', app.controller.sysUserRole);
