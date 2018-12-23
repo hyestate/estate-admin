@@ -7,6 +7,18 @@ module.exports = app => {
   router.get('/showTables', app.controller.table.show);
   router.get('/descTable/:table', app.controller.table.desc);
 
+  //查询
+  app.get('common', '/common/query', app.controller.common.query);
+  app.post('common', '/common/query', app.controller.common.query);
+  app.get('common', '/common/queryById', app.controller.common.queryById);
+  //新增
+  app.post('common', '/common/create', app.controller.common.create);
+  //修改
+  app.post('common', '/common/update', app.controller.common.update);
+  //删除
+  app.get('common', '/common/delete', app.controller.common.delete);
+
+
   app.resources('users', '/users', app.controller.user);
   app.resources('newHouses', '/t_new_houses', app.controller.newHouses);
 
